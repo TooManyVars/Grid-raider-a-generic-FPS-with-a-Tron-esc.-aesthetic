@@ -32,12 +32,4 @@ public:
 	UFUNCTION()
 	void moveRight(float value);
 
-	//a skeletal mesh for our character(make a camera component first).
-	UPROPERTY(EditAnywhere, Category = "Character mesh")
-	class USkeletalMeshComponent * charMesh;
-
-	//camera mesh component.
-	UPROPERTY(EditAnywhere, Category = "Camera")
-	class UCameraComponent * cameraMesh;
-
 };

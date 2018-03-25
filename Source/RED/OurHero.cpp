@@ -12,14 +12,7 @@ AOurHero::AOurHero()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	//initialise our character movement component.
-	CreateDefaultSubobject<UCharacterMovementComponent>(TEXT("PawnMovement"));
-	//init camera
-	cameraMesh = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraMeshComponent"));
-	//inti skeletal mesh.
-	charMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CharacterMeshComponent"));
-
-
+	
 }
 
 // Called when the game starts or when spawned
