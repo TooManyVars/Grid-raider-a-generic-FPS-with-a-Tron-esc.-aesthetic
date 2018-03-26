@@ -32,4 +32,30 @@ public:
 	UFUNCTION()
 	void moveRight(float value);
 
+	//Jump bindings.
+	UFUNCTION()
+	void StartJump();
+
+	UFUNCTION()
+	void EndJump();
+
+	//player health and death related functions.
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player Character")
+	float PlayerHealth;
+
+	//Whether the player should be dead or not.
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Player Character")
+	bool IsDead = false;
+
+	//subtracts health when the player is damaged.
+	UFUNCTION(BlueprintCallable, Category = "Player Character")
+	virtual void RemainingHealth(float delta);
+
+	//function to check if the player should dead or not, and set the isDead property appropriately.
+	UFUNCTION()
+	virtual void CheckDead();
+
+	//add a function that makes property changes easier in the editor.
+
 };

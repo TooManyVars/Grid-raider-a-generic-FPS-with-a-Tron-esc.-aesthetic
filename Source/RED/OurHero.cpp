@@ -40,6 +40,9 @@ void AOurHero::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	//camera inputs.
 	PlayerInputComponent->BindAxis("Turn", this, &AOurHero::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp", this, &AOurHero::AddControllerPitchInput);
+	//jump inputs.
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AOurHero::StartJump);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &AOurHero::EndJump);
 
 }
 
@@ -58,3 +61,30 @@ void AOurHero::moveRight(float value)
 	AddMovementInput(GetActorRightVector(), value);
 }
 
+void AOurHero::StartJump()
+{
+	//enables jumping.
+	bPressedJump = true;
+}
+
+void AOurHero::EndJump()
+{
+	bPressedJump = false;
+}
+
+void AOurHero::RemainingHealth(float delta)
+{
+	PlayerHealth += delta;
+}
+
+void AOurHero::CheckDead()
+{
+	if (PlayerHealth <= 0)
+	{
+		IsDead = true;
+	}
+	else
+	{
+		IsDead = false;
+	}
+}
