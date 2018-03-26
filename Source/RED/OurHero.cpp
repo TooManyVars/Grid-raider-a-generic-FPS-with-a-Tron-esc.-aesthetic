@@ -37,6 +37,9 @@ void AOurHero::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	//binds the "moveForward" function and the "move right" function to their corresponding binds.
 	PlayerInputComponent->BindAxis("MoveForward", this, &AOurHero::moveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AOurHero::moveRight);
+	//camera inputs.
+	PlayerInputComponent->BindAxis("Turn", this, &AOurHero::AddControllerYawInput);
+	PlayerInputComponent->BindAxis("LookUp", this, &AOurHero::AddControllerPitchInput);
 
 }
 
