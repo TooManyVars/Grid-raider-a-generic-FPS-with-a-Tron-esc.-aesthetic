@@ -74,12 +74,12 @@ void AOurHero::EndJump()
 
 void AOurHero::RemainingHealth(float delta)
 {
-	PlayerHealth += delta;
+	Health += delta;
 }
 
 void AOurHero::CheckDead()
 {
-	if (PlayerHealth <= 0)
+	if (Health <= 0)
 	{
 		IsDead = true;
 	}
@@ -87,4 +87,13 @@ void AOurHero::CheckDead()
 	{
 		IsDead = false;
 	}
+}
+
+void AOurHero::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+{
+	IsDead = false;
+	Health = 100;
+
+	Super::PostEditChangeProperty(PropertyChangedEvent);
+	CheckDead();
 }

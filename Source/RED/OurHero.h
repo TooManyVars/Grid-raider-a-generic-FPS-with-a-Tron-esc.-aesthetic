@@ -42,7 +42,7 @@ public:
 	//player health and death related functions.
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player Character")
-	float PlayerHealth;
+	float Health;
 
 	//Whether the player should be dead or not.
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Player Character")
@@ -57,5 +57,9 @@ public:
 	virtual void CheckDead();
 
 	//add a function that makes property changes easier in the editor.
+#if WITH_EDITOR
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+#endif
+
 
 };
