@@ -26,6 +26,10 @@ public:
 	//Property that dictates the look and design of the gun.
 	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent * Design;
+
+	//an arrow component dictating where the barrel is.
+	UPROPERTY(EditAnywhere)
+	class UArrowComponent * Barrel;
 	
 	
 };
