@@ -5,7 +5,6 @@
 #include "GameFramework/MovementComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Camera/CameraComponent.h"
-#include "Components/ArrowComponent.h"
 
 
 // Sets default values
@@ -51,14 +50,38 @@ void AOurHero::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 void AOurHero::moveForward(float value)
 {
 	//allows for forward movement.
-	AddMovementInput(GetActorForwardVector(), value);
+	//AddMovementInput(GetActorForwardVector(), value); //i'm changing this code in order to get movement more comfortable for the player.
+
+	if ((Controller != NULL) && (value != 0.0f))
+	{
+		// find out which way is forward
+		FRotator Rotation = Controller->GetControlRotation();
+		// Limit pitch when walking or falling
+		if (GetCharacterMovement()->IsMovingOnGround() || GetCharacterMovement()->IsFalling())
+		{
+			Rotation.Pitch = 0.0f;
+		}
+		// add movement in that direction
+		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::X);
+		AddMovementInput(Direction, value);
+	}
 }
 
 
 void AOurHero::moveRight(float value)
 {
 	//allows for right movement.
-	AddMovementInput(GetActorRightVector(), value);
+	//AddMovementInput(GetActorRightVector(), value);//i'm changing this code in order to get movement more comfortable for the player.
+	
+	if ((Controller != NULL) && (value != 0.0f))
+	{
+		// find out which way is right
+		const FRotator Rotation = Controller->GetControlRotation();
+		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
+		// add movement in that direction
+		AddMovementInput(Direction, value);
+	}
+
 }
 
 void AOurHero::StartJump()
