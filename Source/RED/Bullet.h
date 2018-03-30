@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Gun.generated.h"
+#include "Bullet.generated.h"
 
 UCLASS()
-class RED_API AGun : public AActor
+class RED_API ABullet : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AGun();
+	ABullet();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,11 +23,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//Property that dictates the look and design of the gun.
-	UPROPERTY(EditAnywhere)
-	class UStaticMeshComponent * Design;
-
-	//an arrow component dictating where the barrel is.
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	class UArrowComponent * Barrel;
+	
+	
 };
