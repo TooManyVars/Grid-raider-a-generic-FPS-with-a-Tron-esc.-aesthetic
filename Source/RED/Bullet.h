@@ -23,6 +23,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	//collision component for the sphere.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "projectiles")
+	class USphereComponent * CollisionComponent;
 	
 	
 };
