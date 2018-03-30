@@ -2,7 +2,7 @@
 
 #include "Bullet.h"
 #include "Components/SphereComponent.h"
-
+#include "Engine.h"
 
 // Sets default values
 ABullet::ABullet()
@@ -12,6 +12,15 @@ ABullet::ABullet()
 	CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere collision component"));
 	CollisionComponent->InitSphereRadius(15.0f);
 	RootComponent = CollisionComponent;
+
+	// Use this component to drive this bullet's movement.
+	BulletMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("BulletMovementComponent"));
+	BulletMovementComponent->SetUpdatedComponent(CollisionComponent);
+	BulletMovementComponent->InitialSpeed = 3000.0f;
+	BulletMovementComponent->MaxSpeed = 3000.0f;
+	BulletMovementComponent->bRotationFollowsVelocity = true;
+	BulletMovementComponent->bShouldBounce = true;
+	BulletMovementComponent->Bounciness = 0.3f;
 }
 
 // Called when the game starts or when spawned

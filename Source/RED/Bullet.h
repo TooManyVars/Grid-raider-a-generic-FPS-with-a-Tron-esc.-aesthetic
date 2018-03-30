@@ -26,6 +26,12 @@ public:
 	//collision component for the sphere.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "projectiles")
 	class USphereComponent * CollisionComponent;
+
+	//projectile movement component for the bullet.
+	UPROPERTY(VisibleAnywhere, Category = "projectiles")
+	class UProjectileMovementComponent * BulletMovementComponent;
+
+	//function responsible for launching the projectile(next session).
 	
 	
 };

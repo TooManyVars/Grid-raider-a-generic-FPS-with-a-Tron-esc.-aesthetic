@@ -23,24 +23,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
+	//Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UFUNCTION()
-	void moveForward(float value);
-	
-	UFUNCTION()
-	void moveRight(float value);
-
-	//Jump bindings.
-	UFUNCTION()
-	void StartJump();
-
-	UFUNCTION()
-	void EndJump();
-
 	//player health and death related functions.
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player Character")
 	float Health;
 

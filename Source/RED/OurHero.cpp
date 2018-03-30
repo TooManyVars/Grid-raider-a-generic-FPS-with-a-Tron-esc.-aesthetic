@@ -1,11 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "OurHero.h"
-#include "GameFramework/Pawn.h"
-#include "GameFramework/MovementComponent.h"
-#include "GameFramework/CharacterMovementComponent.h"
-#include "Camera/CameraComponent.h"
-
 
 // Sets default values
 AOurHero::AOurHero()
@@ -33,68 +28,9 @@ void AOurHero::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	//binds the "moveForward" function and the "move right" function to their corresponding binds.
-	PlayerInputComponent->BindAxis("MoveForward", this, &AOurHero::moveForward);
-	PlayerInputComponent->BindAxis("MoveRight", this, &AOurHero::moveRight);
-	//camera inputs.
-	PlayerInputComponent->BindAxis("Turn", this, &AOurHero::AddControllerYawInput);
-	PlayerInputComponent->BindAxis("LookUp", this, &AOurHero::AddControllerPitchInput);
-	//jump inputs.
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AOurHero::StartJump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &AOurHero::EndJump);
-
 }
 
 //note: the current implementation of binding our functions to our axis mappings may need reworking.
-
-void AOurHero::moveForward(float value)
-{
-	//allows for forward movement.
-	//AddMovementInput(GetActorForwardVector(), value); //i'm changing this code in order to get movement more comfortable for the player.
-
-	if ((Controller != NULL) && (value != 0.0f))
-	{
-		// find out which way is forward
-		FRotator Rotation = Controller->GetControlRotation();
-		// Limit pitch when walking or falling
-		if (GetCharacterMovement()->IsMovingOnGround() || GetCharacterMovement()->IsFalling())
-		{
-			Rotation.Pitch = 0.0f;
-		}
-		// add movement in that direction
-		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::X);
-		AddMovementInput(Direction, value);
-	}
-}
-
-
-void AOurHero::moveRight(float value)
-{
-	//allows for right movement.
-	//AddMovementInput(GetActorRightVector(), value);//i'm changing this code in order to get movement more comfortable for the player.
-	
-	if ((Controller != NULL) && (value != 0.0f))
-	{
-		// find out which way is right
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
-		// add movement in that direction
-		AddMovementInput(Direction, value);
-	}
-
-}
-
-void AOurHero::StartJump()
-{
-	//enables jumping.
-	bPressedJump = true;
-}
-
-void AOurHero::EndJump()
-{
-	bPressedJump = false;
-}
-
 void AOurHero::RemainingHealth(float delta)
 {
 	Health += delta;
