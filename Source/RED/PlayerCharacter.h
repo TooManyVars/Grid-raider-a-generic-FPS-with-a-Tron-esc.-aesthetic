@@ -13,8 +13,9 @@ UCLASS()
 class RED_API APlayerCharacter : public AOurHero
 {
 	GENERATED_BODY()
-	
-	
+
+	APlayerCharacter();
+
 	//Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -35,4 +36,7 @@ class RED_API APlayerCharacter : public AOurHero
 	UFUNCTION()
 	void Fire();
 	
+	// FPS camera.
+	//UPROPERTY(VisibleAnywhere)
+	//class UCameraComponent* FPSCameraComponent;
 };

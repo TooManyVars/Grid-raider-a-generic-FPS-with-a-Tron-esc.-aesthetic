@@ -4,8 +4,15 @@
 #include "GameFramework/MovementComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
 
-
+APlayerCharacter::APlayerCharacter()
+{
+	// Create a first person camera component.
+	//FPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
+	// Attach the camera component to our capsule component.
+	//FPSCameraComponent->SetupAttachment(GetCapsuleComponent());
+}
 
 void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
