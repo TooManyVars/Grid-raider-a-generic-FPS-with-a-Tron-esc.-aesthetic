@@ -37,3 +37,8 @@ void ABullet::Tick(float DeltaTime)
 
 }
 
+//dictates the direction the projectile will be shot in.
+void ABullet::FireInDirection(const FVector& ShootDirection)
+{
+	BulletMovementComponent->Velocity = ShootDirection * BulletMovementComponent->InitialSpeed;
+}

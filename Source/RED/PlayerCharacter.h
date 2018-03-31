@@ -30,5 +30,9 @@ class RED_API APlayerCharacter : public AOurHero
 
 	UFUNCTION()
 	void EndJump();
+
+	//firing.
+	UFUNCTION()
+	void Fire();
 	
 };

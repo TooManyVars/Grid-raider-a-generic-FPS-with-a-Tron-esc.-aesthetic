@@ -20,6 +20,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	//jump inputs.
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &APlayerCharacter::StartJump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &APlayerCharacter::EndJump);
+	//fire inputs.
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APlayerCharacter::Fire);
 
 }
 
@@ -69,4 +71,9 @@ void APlayerCharacter::StartJump()
 void APlayerCharacter::EndJump()
 {
 	bPressedJump = false;
+}
+
+void APlayerCharacter::Fire()
+{
+
 }

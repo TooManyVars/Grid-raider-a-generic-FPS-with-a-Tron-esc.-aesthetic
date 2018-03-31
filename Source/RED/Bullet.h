@@ -31,7 +31,8 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "projectiles")
 	class UProjectileMovementComponent * BulletMovementComponent;
 
-	//function responsible for launching the projectile(next session).
+	//function responsible for launching the projectile.
+	void FireInDirection(const FVector& ShootDirection);
 	
 	
 };
