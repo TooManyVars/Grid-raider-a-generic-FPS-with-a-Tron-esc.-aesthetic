@@ -16,6 +16,8 @@ class RED_API APlayerCharacter : public AOurHero
 
 	APlayerCharacter();
 
+public:
+
 	//Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -40,5 +42,13 @@ class RED_API APlayerCharacter : public AOurHero
 	UPROPERTY(VisibleAnywhere)
 	class UCameraComponent* FPSCameraComponent;
 
-	//set the muzzle offset from the gun barrel and the camera.
+
+	// Gun muzzle's offset(distance) from the camera location.
+	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category="Gameplay")
+	FVector MuzzleOffset;
+
+	//The projectile to spawn when the shoot function is called.
+	//notice how the projectile class is of a type which is a derived instance of our bullet class.
+	UPROPERTY(EditDefaultsOnly, Category = "projectile")
+	TSubclassOf<class ABullet> ProjectileClass;
 };
