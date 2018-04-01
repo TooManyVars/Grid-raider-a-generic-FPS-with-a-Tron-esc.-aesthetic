@@ -9,9 +9,9 @@
 APlayerCharacter::APlayerCharacter()
 {
 	// Create a first person camera component.
-	//FPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
+	FPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
 	// Attach the camera component to our capsule component.
-	//FPSCameraComponent->SetupAttachment(GetCapsuleComponent());
+	FPSCameraComponent->SetupAttachment(GetCapsuleComponent());
 }
 
 void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

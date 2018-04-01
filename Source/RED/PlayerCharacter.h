@@ -37,6 +37,8 @@ class RED_API APlayerCharacter : public AOurHero
 	void Fire();
 	
 	// FPS camera.
-	//UPROPERTY(VisibleAnywhere)
-	//class UCameraComponent* FPSCameraComponent;
+	UPROPERTY(VisibleAnywhere)
+	class UCameraComponent* FPSCameraComponent;
+
+	//set the muzzle offset from the gun barrel and the camera.
 };
