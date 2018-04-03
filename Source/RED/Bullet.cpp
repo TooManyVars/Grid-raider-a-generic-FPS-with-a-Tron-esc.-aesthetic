@@ -11,6 +11,7 @@ ABullet::ABullet()
 	PrimaryActorTick.bCanEverTick = true;
 	CollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere collision component"));
 	CollisionComponent->InitSphereRadius(15.0f);
+	//attach the collision component to the root component.
 	RootComponent = CollisionComponent;
 
 	// Use this component to drive this bullet's movement.
@@ -21,6 +22,10 @@ ABullet::ABullet()
 	BulletMovementComponent->bRotationFollowsVelocity = true;
 	BulletMovementComponent->bShouldBounce = true;
 	BulletMovementComponent->Bounciness = 0.3f;
+	
+	//set how long the actor lives before dying.
+	InitialLifeSpan = 1.5f;
+
 }
 
 // Called when the game starts or when spawned

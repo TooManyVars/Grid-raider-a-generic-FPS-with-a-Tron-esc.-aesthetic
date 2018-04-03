@@ -27,15 +27,15 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	//player health and death related functions.
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Player Character")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Base Character")
 	float Health;
 
 	//Whether the player should be dead or not.
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Player Character")
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Base Character")
 	bool IsDead = false;
 
 	//subtracts health when the player is damaged.
-	UFUNCTION(BlueprintCallable, Category = "Player Character")
+	UFUNCTION(BlueprintCallable, Category = "Base Character")
 	virtual void RemainingHealth(float delta);
 
 	//function to check if the player should dead or not, and set the isDead property appropriately.
