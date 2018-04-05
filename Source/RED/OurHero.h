@@ -39,7 +39,7 @@ public:
 	virtual void RemainingHealth(float delta);
 
 	//function to check if the player should dead or not, and set the isDead property appropriately.
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable, Category = "Base Character")
 	virtual void CheckDead();
 
 	//add a function that makes property changes easier in the editor.

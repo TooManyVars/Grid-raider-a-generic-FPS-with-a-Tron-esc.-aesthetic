@@ -36,7 +36,7 @@ void AOurHero::RemainingHealth(float delta)
 	Health += delta;
 }
 
-void AOurHero::CheckDead()
+void AOurHero::CheckDead() //simply checks whether the player/enemy's health is low enough to be considered dead.
 {
 	if (Health <= 0)
 	{
