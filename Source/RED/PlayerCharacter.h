@@ -35,7 +35,7 @@ public:
 	void EndJump();
 
 	//firing.
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable, Category="Gameplay")
 	void Fire();
 	
 	// FPS camera.
