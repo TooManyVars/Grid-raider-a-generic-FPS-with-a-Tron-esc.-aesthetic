@@ -31,15 +31,4 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	class UArrowComponent * Barrel;
 
-	// Gun muzzle's offset(distance) from the camera location(now in the gun class).
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay")
-	FVector GunMuzzleOffset;
-
-	//The projectile to spawn when the shoot function is called.
-	//notice how the projectile class is of a type which is a derived instance of our bullet class.
-	UPROPERTY(EditDefaultsOnly, Category = "projectile")
-	TSubclassOf<class ABullet> BulletType;
-
-	UFUNCTION(BlueprintCallable, Category = "Gameplay")
-	void fireWeapon();
 };
