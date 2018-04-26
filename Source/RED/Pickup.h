@@ -3,16 +3,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "GameFramework/Pawn.h"
 #include "Pickup.generated.h"
 
 UCLASS()
-class RED_API APickup : public AActor
+class RED_API APickup : public APawn
 {
 	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
+
+public:
+	// Sets default values for this pawn's properties
 	APickup();
 
 protected:
@@ -23,10 +23,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickups")
-	UStaticMeshComponent * pickupMesh;
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	//remember, the main goal with the pickup is to have it floating.
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pickups")
+	class UStaticMeshComponent * pickupMesh;
 	
 };
